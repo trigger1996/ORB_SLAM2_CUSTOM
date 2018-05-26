@@ -123,7 +123,8 @@ public:
     std::vector<MapPoint*> GetTrackedMapPoints();
     std::vector<cv::KeyPoint> GetTrackedKeyPointsUn();
 
-private:
+//private:
+protected:
 
     // Input sensor
     eSensor mSensor;
