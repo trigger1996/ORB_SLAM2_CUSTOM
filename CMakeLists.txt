@@ -78,9 +78,41 @@ ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
 ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
 )
 
+##
+#################################################################
+include_directories(
+main/include
+main/rplidar_sdk/include
+main/rplidar_sdk/src
+main/rplidar_sdk/src/arch
+main/rplidar_sdk/src/hal
+main/rplidar_sdk/
+main/icp_opencv/icp-opencv
+main/icp_opencv/third_party/kdtree
+)
+
+# 增加激光雷达SDK
+set(SRC_LIDAR
+main/rplidar_sdk/src/rplidar_driver.cpp
+main/rplidar_sdk/src/arch/linux/net_serial.cpp
+main/rplidar_sdk/src/arch/linux/net_socket.cpp
+main/rplidar_sdk/src/arch/linux/timer.cpp
+main/rplidar_sdk/src/hal/thread.cpp
+)
+
+set(SRC_LIDARSLAM
+main/icp_opencv/icp-opencv/icp.c
+main/icp_opencv/third_party/kdtree/kdtree.c
+main/icp_interface.cpp
+main/lidar_driver.cpp
+main/og_mapping.cpp
+)
+
 # 增加主函数
 add_executable(orb_slam_on_mono
 main/main.cpp
+${SRC_LIDAR}
+${SRC_LIDARSLAM}
 )
 target_link_libraries(orb_slam_on_mono
 ${PROJECT_NAME}

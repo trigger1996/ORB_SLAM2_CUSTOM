@@ -9,3 +9,12 @@ Thirdparty/g2o/g2o/types
 main
 main/include
 .
+main/rplidar_sdk/src/arch/linux
+main/icp_opencv/third_party
+main/rplidar_sdk/src/arch/win32
+main/icp_opencv/icp-opencv
+main/rplidar_sdk/include
+main/rplidar_sdk/src/arch/macOS
+main/rplidar_sdk/src
+main/icp_opencv/third_party/kdtree
+main/rplidar_sdk/src/hal
