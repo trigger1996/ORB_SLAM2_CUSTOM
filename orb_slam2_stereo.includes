@@ -1,4 +1,6 @@
+Examples/ROS/ORB_SLAM2/src/AR
 include
+main/include
 Thirdparty/DBoW2/DBoW2
 Thirdparty/DBoW2/DUtils
 Thirdparty/g2o
@@ -6,6 +8,4 @@ Thirdparty/g2o/g2o/core
 Thirdparty/g2o/g2o/solvers
 Thirdparty/g2o/g2o/stuff
 Thirdparty/g2o/g2o/types
-main
-main/include
-.
+Examples/Stereo

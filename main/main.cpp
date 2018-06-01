@@ -34,24 +34,30 @@ int main(int argc, char **argv) {
     }
 
     Mat frame;
+    Mat f_left, f_right;
 
     double time = 0;
 
     // Create SLAM system. It initializes all system threads and gets ready to process frames.
-    ORB_SLAM2::__myslam SLAM(argv[1],argv[2],ORB_SLAM2::System::MONOCULAR,true);
+    ORB_SLAM2::__myslam SLAM(argv[1],argv[2],ORB_SLAM2::System::STEREO,true);
 
     while (true) {
 
         cap >> frame;
-        resize(frame, frame, Size(640, 480));
+        //resize(frame, frame, Size(640, 480));
         //imshow("cam", frame);
+        f_left = frame(Rect(0, 0, 320, 240));
+        f_right = frame(Rect(320, 0, frame.cols - 320, frame.rows));
+        //imshow("left", f_left);
+        //imshow("right", f_right);
+
 
         time+=5000;
-        SLAM.TrackMonocular(frame, time);
+        SLAM.TrackStereo(f_left, f_right, time);
 
         Mat cam_center = SLAM.get_Pos();
         if (!cam_center.empty())
-            cout << cam_center << endl;
+            cout << cam_center << endl;     // mm
 
         if (waitKey(5) == 27) {
             SLAM.Shutdown();

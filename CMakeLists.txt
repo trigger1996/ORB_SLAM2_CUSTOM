@@ -79,10 +79,10 @@ ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
 )
 
 # 增加主函数
-add_executable(orb_slam_on_mono
+add_executable(orb_slam_on_stereo
 main/main.cpp
 )
-target_link_libraries(orb_slam_on_mono
+target_link_libraries(orb_slam_on_stereo
 ${PROJECT_NAME}
 )
 
