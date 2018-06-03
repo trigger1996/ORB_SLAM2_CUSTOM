@@ -109,12 +109,12 @@ main/og_mapping.cpp
 )
 
 # 增加主函数
-add_executable(orb_slam_on_mono
+add_executable(orb_slam_rplidar_stereo
 main/main.cpp
 ${SRC_LIDAR}
 ${SRC_LIDARSLAM}
 )
-target_link_libraries(orb_slam_on_mono
+target_link_libraries(orb_slam_rplidar_stereo
 ${PROJECT_NAME}
 )
 

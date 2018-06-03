@@ -31,12 +31,13 @@ int main(int argc, char **argv) {
     }
 
     Mat frame;
+    Mat f_left, f_right;
     Mat Tcw, mtcw, mRwc;
 
     double time = 0;
 
     // Create SLAM system. It initializes all system threads and gets ready to process frames.
-    ORB_SLAM2::__myslam SLAM(argv[1],argv[2],ORB_SLAM2::System::MONOCULAR,false);
+    ORB_SLAM2::__myslam SLAM(argv[1],argv[2],ORB_SLAM2::System::STEREO,false);
 
     __lidar_driver *lidar;
     lidar = new __lidar_driver;
@@ -59,11 +60,15 @@ int main(int argc, char **argv) {
     while (true) {
 
         cap >> frame;
-        resize(frame, frame, Size(640, 480));
+        //resize(frame, frame, Size(640, 480));
         imshow("cam", frame);
+        f_left = frame(Rect(0, 0, 320, 240));
+        f_right = frame(Rect(320, 0, frame.cols - 320, frame.rows));
+        //imshow("left", f_left);
+        //imshow("right", f_right);
 
         time+=5000;
-        Tcw = SLAM.TrackMonocular(frame, time);
+        Tcw = SLAM.TrackStereo(f_left, f_right, time);
 
         if (!Tcw.empty()) {
             mtcw = Tcw.rowRange(0,3).col(3);
@@ -75,8 +80,8 @@ int main(int argc, char **argv) {
                 lidar->draw(lidarimg, lidar->laserArray, (char *)"lidar_img_raw", true);
 
                 // XY方向位移
-                x_esti = mtcw.at<float>(0, 0);
-                y_esti = mtcw.at<float>(1, 0);
+                x_esti =  mtcw.at<float>(1, 0) * 100.0f;     // y
+                y_esti = -mtcw.at<float>(0, 0) * 100.0f;     // -x
                 // 偏航角
                 mRwc = Tcw.rowRange(0,3).colRange(0,3).t();
                 vector<float> q = Converter::toQuaternion(mRwc);                                              // 旋转矩阵转四元数
