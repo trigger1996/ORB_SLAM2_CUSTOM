@@ -46,8 +46,8 @@ int main(int argc, char **argv) {
         cap >> frame;
         //resize(frame, frame, Size(640, 480));
         //imshow("cam", frame);
-        f_left = frame(Rect(0, 0, 320, 240));
-        f_right = frame(Rect(320, 0, frame.cols - 320, frame.rows));
+        f_right = frame(Rect(0, 0, 320, 240));
+        f_left = frame(Rect(320, 0, frame.cols - 320, frame.rows));     // 这个相机左右是反的
         //imshow("left", f_left);
         //imshow("right", f_right);
 
