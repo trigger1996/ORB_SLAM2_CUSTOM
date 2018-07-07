@@ -5,5 +5,5 @@ Vocabulary/ORBvoc.txt
 Thirdparty/DBoW2/build/*
 Thirdparty/g2o/build/*
 
-libg2o.so
-libDBoW2.so
+Thirdparty/DBoW2/lib/libg2o.so
+Thirdparty/g2o/lib/libDBoW2.so
