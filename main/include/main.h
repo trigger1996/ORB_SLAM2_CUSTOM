@@ -9,5 +9,6 @@
 #include <opencv2/opencv.hpp>
 
 #include "../include/System.h"
+#include "udp_socket.h"
 
 #endif // MAIN_H

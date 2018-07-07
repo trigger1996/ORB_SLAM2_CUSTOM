@@ -35,7 +35,9 @@ include/System.h
 include/Tracking.h
 include/Viewer.h
 main/include/main.h
+main/include/udp_socket.h
 main/main.cpp
+main/udp_socket.cpp
 src/Converter.cc
 src/Frame.cc
 src/FrameDrawer.cc
@@ -171,4 +173,4 @@ Thirdparty/g2o/g2o/types/types_seven_dof_expmap.h
 Thirdparty/g2o/g2o/types/types_six_dof_expmap.cpp
 Thirdparty/g2o/g2o/types/types_six_dof_expmap.h
 Thirdparty/g2o/config.h
-Examples/Stereo/KITTI00-02.yaml
+CMakeLists.txt
