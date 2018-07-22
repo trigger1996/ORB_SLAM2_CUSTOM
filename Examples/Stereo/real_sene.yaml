@@ -19,7 +19,7 @@ Camera.width: 640
 Camera.height: 240
 
 # Camera frames per second 
-Camera.fps: 30.0
+Camera.fps: 60.0                # 30.0
 
 # stereo baseline times fx
 Camera.bf: 387.5744
@@ -35,7 +35,7 @@ ThDepth: 40
 #--------------------------------------------------------------------------------------------
 
 # ORB Extractor: Number of features per image
-ORBextractor.nFeatures: 2000
+ORBextractor.nFeatures: 1000    # 2000
 
 # ORB Extractor: Scale factor between levels in the scale pyramid 	
 ORBextractor.scaleFactor: 1.2

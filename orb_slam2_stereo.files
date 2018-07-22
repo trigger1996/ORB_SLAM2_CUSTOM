@@ -1,3 +1,5 @@
+CMakeLists.txt
+Examples/Stereo/real_sene.yaml
 build/CMakeFiles/3.5.1/CompilerIdC/CMakeCCompilerId.c
 build/CMakeFiles/3.5.1/CompilerIdCXX/CMakeCXXCompilerId.cpp
 build/CMakeFiles/feature_tests.c
@@ -171,4 +173,3 @@ Thirdparty/g2o/g2o/types/types_seven_dof_expmap.h
 Thirdparty/g2o/g2o/types/types_six_dof_expmap.cpp
 Thirdparty/g2o/g2o/types/types_six_dof_expmap.h
 Thirdparty/g2o/config.h
-Examples/Stereo/KITTI00-02.yaml
